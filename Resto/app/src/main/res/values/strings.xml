@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Resto</string>
+    <string name="nom_restaurant">Resto</string>
+    <string name="carte">Carte</string>
+    <string name="compte">Compte</string>
+
+    <string name="plat_jour">Plats du jour</string>
+    <string name="entree">Entrées</string>
+    <string name="plat">Plats</string>
+    <string name="dessert">Desserts</string>
+    <string name="boisson">Boissons</string>
+
+    <string name="pageAccueil">Accueil</string>
+    <string name="langue">Langues</string>
+    <string name="serveur">Appeler serveur</string>
+
+    <string name="pdj1">Magret de canard au miel</string>
+    <string name="def_pdj1">servi avec des pommes de terre</string>
+    <string name="prix_pdj1">15€</string>
+
+    <string name="pdj2">Blanquette de veau</string>
+    <string name="def_pdj2">célèbre blanquette traditionnelle</string>
+    <string name="prix_pdj2">14€</string>
+
+    <string name="pdj3">Hamburger savoyard</string>
+    <string name="def_pdj3">servi avec des frites</string>
+    <string name="prix_pdj3">10€</string>
+
+    <string name="entree_f">Entrées froides</string>
+    <string name="entree_c">Entrées chaudes</string>
+
+</resources>

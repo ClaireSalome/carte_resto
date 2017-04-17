@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/carte"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ihm_p6.infsi351.ensi.fr.myapplication.CarteActivity"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <!-- barre de menu principal-->
+    <RelativeLayout
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/pageAccueil"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/pageAccueil"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/serveur"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/serveur"
+            android:gravity="center"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@id/langue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/langue"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/serveur"/>
+
+    </RelativeLayout>
+
+    <!--Barre de sélection des catégories -->
+    <LinearLayout
+        android:id="@+id/barreMenu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/home">
+
+        <TextView
+            android:id="@+id/platJour"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/plat_jour"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/entree"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/entree"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/plat"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/plat"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/dessert"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/dessert"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/boisson"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/boisson"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="13dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+
+    </LinearLayout>
+
+    <!--Liste des plats du jour-->
+    <LinearLayout
+        android:id="@+id/menu_pdj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/barreMenu"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/pdj1"
+            android:layout_weight="0.33"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/border_rectangle"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="0.7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pdj1"
+                    android:textStyle="bold"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_weight="0.2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prix_pdj1"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="25dp"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/def_pdj1"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pdj2"
+            android:layout_weight="0.33"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/border_rectangle"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="0.7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pdj2"
+                    android:textStyle="bold"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_weight="0.2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prix_pdj2"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="25dp"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/def_pdj2"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pdj3"
+            android:layout_weight="0.33"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/border_rectangle"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="0.7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/pdj3"
+                    android:textStyle="bold"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:layout_weight="0.2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prix_pdj3"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:textSize="25dp"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/def_pdj3"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--Liste des entrées-->
+    <LinearLayout
+        android:id="@+id/menu_entree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/barreMenu"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!--Entrées froides-->
+        <LinearLayout
+            android:id="@+id/entree_f"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_rectangle"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/entree_f"
+                android:textSize="25dp"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:layout_weight="0.1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/down_arrow" />
+
+        </LinearLayout>
+
+        <!--Entrées chaudes-->
+        <LinearLayout
+            android:id="@+id/entree_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_rectangle"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/entree_c"
+                android:textSize="25dp"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:layout_weight="0.1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/down_arrow" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
