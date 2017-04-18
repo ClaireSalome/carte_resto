@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     //Cette fonction permet d'afficher la carte du restaurant
     public void afficherCarte(View v){
         Intent intent=new Intent(MainActivity.this,CarteActivity.class);

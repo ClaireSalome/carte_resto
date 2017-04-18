@@ -1,11 +1,12 @@
 package ihm_p6.infsi351.ensi.fr.myapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View ;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 /**
  * Created by lila on 07/04/17.
@@ -26,12 +27,36 @@ public class CarteActivity extends AppCompatActivity{
 
     }
 
+    /**
+     * retour à la page d'accueil
+     * @param v
+     */
+    public void homePage(View v){
+        Intent intent=new Intent(CarteActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Affiche une boite dialogue pour confirmer l'appel au serveur
+     * @param v
+     */
+    public void callWaiter(View v){
+
+        new AlertDialog.Builder(this).setMessage("Appeler un serveur ?").setPositiveButton("Oui", null).setNegativeButton("Non",null).show();
+    }
+
+
+    /**
+     * afficher les différentes catégories (entrées, plats, desserts...)
+     * @param v la catégorie sur laquelle on  appuyé
+     */
     public void afficherMenu(View v){
 
         // ne plus afficher la vue actuelle
         findViewById(idViewVisible).setVisibility(View.GONE);
         // ne plus opacifié le menu sur lequel on était
-        findViewById(idBoutonMenu).setBackgroundColor(Color.WHITE);
+        //findViewById(idBoutonMenu).setBackgroundColor(Color.WHITE);
         findViewById(idBoutonMenu).setBackground(getResources().getDrawable(R.drawable.border_rectangle));
         idBoutonMenu = v.getId();
         //regarder quel est le menu à afficher
@@ -53,6 +78,12 @@ public class CarteActivity extends AppCompatActivity{
     }
 
 
+
+
+    /**
+     * afficher les sous menus de la catégorie "Entrées"
+     * @param v le bouton du sous menu sur lequel on a appuyé
+     */
     public void afficherSousMenuEntree(View v){
         if (v.getId() == R.id.entree_f) {
             if (findViewById(R.id.ssmenu_entreef).getVisibility() == View.GONE) {
@@ -75,6 +106,81 @@ public class CarteActivity extends AppCompatActivity{
     }
 
 
+
+
+
+    /**
+     * afficher les sous menus de la catégorie "Plats"
+     * @param v le bouton du sous menu sur lequel on a appuyé
+     */
+    public void afficherSousMenuPlat(View v){
+
+        if (v.getId() == R.id.salade) {
+            if (findViewById(R.id.ssmenu_salade).getVisibility() == View.GONE) {
+                findViewById(R.id.ssmenu_salade).setVisibility(View.VISIBLE);
+                v.setBackground(getResources().getDrawable(R.drawable.up_arrow));
+            } else {
+                findViewById(R.id.ssmenu_salade).setVisibility(View.GONE);
+                v.setBackground(getResources().getDrawable(R.drawable.down_arrow));
+            }
+        }
+        if (v.getId() == R.id.rapide) {
+            if (findViewById(R.id.ssmenu_rapide).getVisibility() == View.GONE) {
+                findViewById(R.id.ssmenu_rapide).setVisibility(View.VISIBLE);
+                v.setBackground(getResources().getDrawable(R.drawable.up_arrow));
+            } else {
+                findViewById(R.id.ssmenu_rapide).setVisibility(View.GONE);
+                v.setBackground(getResources().getDrawable(R.drawable.down_arrow));
+            }
+        }
+        if (v.getId() == R.id.specialite) {
+            if (findViewById(R.id.ssmenu_spe).getVisibility() == View.GONE) {
+                findViewById(R.id.ssmenu_spe).setVisibility(View.VISIBLE);
+                v.setBackground(getResources().getDrawable(R.drawable.up_arrow));
+            } else {
+                findViewById(R.id.ssmenu_spe).setVisibility(View.GONE);
+                v.setBackground(getResources().getDrawable(R.drawable.down_arrow));
+            }
+        }
+    }
+
+
+
+
+
+    /**
+     * afficher les sous menus de la catégorie "Desserts"
+     * @param v le bouton du sous menu sur lequel on a appuyé
+     */
+    public void afficherSousMenuDessert(View v){
+
+        if (v.getId() == R.id.patisseries) {
+            if (findViewById(R.id.ssmenu_dessert).getVisibility() == View.GONE) {
+                findViewById(R.id.ssmenu_dessert).setVisibility(View.VISIBLE);
+                v.setBackground(getResources().getDrawable(R.drawable.up_arrow));
+            } else {
+                findViewById(R.id.ssmenu_dessert).setVisibility(View.GONE);
+                v.setBackground(getResources().getDrawable(R.drawable.down_arrow));
+            }
+        }
+        if (v.getId() == R.id.glace) {
+            if (findViewById(R.id.ssmenu_glaces).getVisibility() == View.GONE) {
+                findViewById(R.id.ssmenu_glaces).setVisibility(View.VISIBLE);
+                v.setBackground(getResources().getDrawable(R.drawable.up_arrow));
+            } else {
+                findViewById(R.id.ssmenu_glaces).setVisibility(View.GONE);
+                v.setBackground(getResources().getDrawable(R.drawable.down_arrow));
+            }
+        }
+    }
+
+
+
+
+
+    /**
+     * afficher les sous menus de la catégorie "Boissons"
+     */
     public void afficherSousMenuBoisson(View v){
 
         if(v.getId() == R.id.eau) {

@@ -4,12 +4,15 @@
     <string name="carte">Carte</string>
     <string name="compte">Compte</string>
 
+    <!--Onglets-->
+    <string name="favoris">Favoris</string>
     <string name="plat_jour">Plats du jour</string>
     <string name="entree">Entrées</string>
     <string name="plat">Plats</string>
     <string name="dessert">Desserts</string>
     <string name="boisson">Boissons</string>
 
+    <!--Barre de menu-->
     <string name="pageAccueil">Accueil</string>
     <string name="langue">Langues</string>
     <string name="serveur">Appeler serveur</string>
@@ -72,7 +75,7 @@
     <string name="defspe3">avec ses pommes de terre sautées au thym</string>
     <string name="prix_spe3">15€</string>
 
-    <!--Dessert-->
+    <!--Desserts-->
     <string name="patisserie">Desserts</string>
     <string name="dessert1">Café gourmand</string>
     <string name="prix_dessert1">8.50€</string>
