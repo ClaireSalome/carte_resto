@@ -120,4 +120,10 @@
     <string name="badoit">Badoît 1L</string>
     <string name="prix_bad">1.50€</string>
 
+    <!--Commande-->
+    <string name="commande_complete">Voir l ensemble des commandes</string>
+    <string name="quantite">Quantité</string>
+    <string name="intitule">Intitulé</string>
+    <string name="prix_item">Prix</string>
+    <string name="valider">Valider</string>
 </resources>

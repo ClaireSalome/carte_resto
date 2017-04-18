@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ihm_p6.infsi351.ensi.fr.myapplication.CommandeActivity"
+    android:id="@+id/commande"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <!-- BARRE DE MENU PRINCIPAL-->
+    <RelativeLayout
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <Button
+            android:id="@+id/homePage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/home_page"
+            android:onClick="homePage"/>
+
+        <Button
+            android:id="@+id/serveur"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/waiter"
+            android:layout_alignParentRight="true"
+            android:onClick="callWaiter" />
+
+        <Button
+            android:id="@id/langue"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/francais"
+            android:layout_toLeftOf="@id/serveur"
+            android:onClick="changeLanguage"/>
+
+    </RelativeLayout>
+
+
+    <!--COMMANDE-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp">
+
+
+        <!--Quantite Initule et Prix-->
+        <LinearLayout
+            android:id="@+id/qip"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <TextView
+                android:id="@+id/quantite"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="@string/quantite"
+                android:textSize="15dp"/>
+
+
+            <TextView
+                android:id="@+id/intitule"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="@string/intitule"
+                android:textSize="15dp"
+                android:layout_toRightOf="@+id/quantite"/>
+
+            <TextView
+                android:id="@+id/prix_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/prix_item"
+                android:textSize="15dp"
+                android:layout_toRightOf="@+id/intitule"/>
+        </LinearLayout>
+
+
+        <!--Total de la commande-->
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/qip"
+            android:text="Total : 45€"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="right"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_alignParentRight="true"/>
+
+        <!--Ensemble de la commande-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/total"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/commande_complete"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/commande_complete"
+                android:textSize="15dp"
+                android:onClick="entireOrder"/>
+
+        </LinearLayout>
+
+        <!-- Valider la commande-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/valider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/valider"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:onClick="validateOrder">
+
+            </Button>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
