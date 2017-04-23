@@ -1686,6 +1686,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
+
                 <!--BOUTON AFFICHER LA COMMANDE-->
                 <RelativeLayout
                     android:layout_width="match_parent"

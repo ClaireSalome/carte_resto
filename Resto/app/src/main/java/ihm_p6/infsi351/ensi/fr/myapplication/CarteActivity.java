@@ -56,7 +56,6 @@ public class CarteActivity extends AppCompatActivity{
         // ne plus afficher la vue actuelle
         findViewById(idViewVisible).setVisibility(View.GONE);
         // ne plus opacifié le menu sur lequel on était
-        //findViewById(idBoutonMenu).setBackgroundColor(Color.WHITE);
         findViewById(idBoutonMenu).setBackground(getResources().getDrawable(R.drawable.border_rectangle));
         idBoutonMenu = v.getId();
         //regarder quel est le menu à afficher
