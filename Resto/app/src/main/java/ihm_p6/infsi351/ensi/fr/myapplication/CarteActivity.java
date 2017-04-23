@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View ;
-import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * Created by lila on 07/04/17.
@@ -45,6 +45,19 @@ public class CarteActivity extends AppCompatActivity{
 
         new AlertDialog.Builder(this).setMessage("Appeler un serveur ?").setPositiveButton("Oui", null).setNegativeButton("Non",null).show();
     }
+
+
+    /**
+     * Affiche la commande en cours
+     * @param v
+     */
+    public void showOrder(View v){
+        Intent intent = new Intent(CarteActivity.this, CommandeActivity.class) ;
+        startActivity(intent);
+
+    }
+
+
 
 
     /**

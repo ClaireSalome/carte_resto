@@ -1710,7 +1710,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toLeftOf="@id/total"
                         android:text="Afficher la commande"
-                        android:textSize="10dp"/>
+                        android:textSize="10dp"
+                        android:onClick="showOrder"/>
 
                 </RelativeLayout>
 

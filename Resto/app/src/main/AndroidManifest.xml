@@ -22,6 +22,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".CommandeActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
         <activity android:name=".CompteActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
