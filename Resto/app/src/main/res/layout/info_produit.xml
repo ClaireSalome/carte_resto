@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:id="@+id/info_produit">
+
+
+    <!-- BARRE DE MENU PRINCIPAL-->
+    <RelativeLayout
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <Button
+            android:id="@+id/homePage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/home_page"
+            android:onClick="homePage"/>
+
+        <Button
+            android:id="@+id/serveur"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/waiter"
+            android:layout_alignParentRight="true"
+            android:onClick="callWaiter" />
+
+        <Button
+            android:id="@id/langue"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/francais"
+            android:layout_toLeftOf="@id/serveur"/>
+
+    </RelativeLayout>
+
+    <!--BARRE DES CATEGORIES -->
+    <LinearLayout
+        android:id="@+id/barreMenu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/home"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <!--Favoris à n'afficher que quand on est connecté-->
+        <TextView
+            android:id="@+id/favoris"
+            android:layout_weight="0.2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/favoris"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/platJour"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/plat_jour"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/entree"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/entree"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/plat"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/plat"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/dessert"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/dessert"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+        <TextView
+            android:id="@+id/boisson"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:text="@string/boisson"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="12dp"
+            android:background="@drawable/border_rectangle"
+            android:onClick="afficherMenu"/>
+
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/rapide1"
+                android:textSize="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/prix_rapide1"
+                android:textSize="25dp"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:text="@string/image_rapide1"
+            android:textSize="20dp"
+            android:gravity="center"/>
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="@string/ingredient_rapide1"
+            android:textSize="20dp"
+            android:layout_margin="10dp"/>
+
+        <!-- quantite -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/quantite"
+                    android:textSize="20dp"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/less"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:onClick="less"/>
+                    <EditText
+                        android:id="@+id/editQuantite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:inputType="number"
+                        android:text="@string/quantite_commande"
+                        android:textSize="25dp"
+                        android:gravity="center"
+                        android:layout_margin="5dp"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/more"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:onClick="more"/>
+                </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!-- choix accompagnement + sauce -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp">
+            <Spinner
+                android:id="@+id/accompagnement_spinner"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:entries="@array/accompagnement_array"
+                android:scrollbarSize="30dp"></Spinner>
+            <Spinner
+                android:id="@+id/sauce_spinner"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:entries="@array/sauce_array"/>
+
+
+        </LinearLayout>
+
+        <!-- choix cuisson + supp ingredients -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <Spinner
+                android:id="@+id/cuisson_spinner"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:entries="@array/cuisson_array"/>
+
+            <Button
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/supprimer_ingredients"
+                android:textSize="15dp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+
+        <!-- ajouter commande -->
+        <Button
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text= "@string/add_commande"
+            android:textSize="15dp"
+            android:gravity="center"/>
+
+
+        <!--BOUTON AFFICHER LA COMMANDE-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total : 45€"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_alignParentRight="true"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/total"
+                android:text="Afficher la commande"
+                android:textSize="10dp"/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

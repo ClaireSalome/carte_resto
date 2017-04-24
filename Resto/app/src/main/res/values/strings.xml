@@ -126,4 +126,39 @@
     <string name="intitule">Intitulé</string>
     <string name="prix_item">Prix</string>
     <string name="valider">Valider</string>
+
+    <!-- info produit -->
+    <string name="ingredient_rapide1">Ingredients: pain, steak, salade, tomates, cheddar</string>
+    <string name="less">-</string>
+    <string name="more">+</string>
+    <string name="quantite_commande">1</string>
+
+    <string name="supprimer_ingredients">supprimer un/des\ningrÃ©dient(s)</string>
+    <string name="add_commande">Ajouter Ã  la commande</string>
+    <string name="image_rapide1">image du plat</string>
+
+    <string name="cuisson_viande">Cuisson</string>
+    <string name="accompagnement">Accomp</string>
+    <string name="sauce">Sauce</string>
+
+    <string-array name="accompagnement_array">
+        <item>Choix accompagnement</item>
+        <item>frite</item>
+        <item>haricot</item>
+    </string-array>
+
+    <string-array name="sauce_array">
+        <item>Choix sauce</item>
+        <item>ketchut</item>
+        <item>mayonnaise</item>
+        <item>barbecue</item>
+    </string-array>
+
+    <string-array name="cuisson_array">
+        <item>Choix cuisson</item>
+        <item>bleu</item>
+        <item>saignant</item>
+        <item>Ã  point</item>
+        <item>bien cuit</item>
+    </string-array>
 </resources>

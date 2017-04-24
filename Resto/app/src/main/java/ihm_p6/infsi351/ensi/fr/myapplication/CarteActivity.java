@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View ;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 /**
  * Created by lila on 07/04/17.
@@ -15,7 +15,7 @@ import android.widget.Toast;
 public class CarteActivity extends AppCompatActivity{
 
     private int idViewVisible=R.id.menu_pdj;
-    private int idBoutonMenu = R.id.platJour;
+    protected int idBoutonMenu = R.id.platJour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,13 @@ public class CarteActivity extends AppCompatActivity{
 
         findViewById(idViewVisible).setVisibility(View.VISIBLE);
         findViewById(idBoutonMenu).setBackgroundColor(Color.GRAY);
+
+        findViewById(R.id.btn_rapide1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                afficherInfo(v);
+            }
+        });
 
     }
 
@@ -48,19 +55,6 @@ public class CarteActivity extends AppCompatActivity{
 
 
     /**
-     * Affiche la commande en cours
-     * @param v
-     */
-    public void showOrder(View v){
-        Intent intent = new Intent(CarteActivity.this, CommandeActivity.class) ;
-        startActivity(intent);
-
-    }
-
-
-
-
-    /**
      * afficher les différentes catégories (entrées, plats, desserts...)
      * @param v la catégorie sur laquelle on  appuyé
      */
@@ -69,6 +63,7 @@ public class CarteActivity extends AppCompatActivity{
         // ne plus afficher la vue actuelle
         findViewById(idViewVisible).setVisibility(View.GONE);
         // ne plus opacifié le menu sur lequel on était
+        //findViewById(idBoutonMenu).setBackgroundColor(Color.WHITE);
         findViewById(idBoutonMenu).setBackground(getResources().getDrawable(R.drawable.border_rectangle));
         idBoutonMenu = v.getId();
         //regarder quel est le menu à afficher
@@ -232,4 +227,12 @@ public class CarteActivity extends AppCompatActivity{
             }
         }
     }
+
+
+    //afficher info d'un produit
+    public void afficherInfo(View v){
+        Intent intent=new Intent(CarteActivity.this,InfoActivity.class);
+        startActivity(intent);
+    }
+
 }

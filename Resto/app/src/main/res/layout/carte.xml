@@ -669,6 +669,7 @@
                                 android:layout_height="wrap_content">
 
                                 <TextView
+                                    android:id="@+id/btn_rapide1"
                                     android:layout_weight="0.5"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -676,7 +677,8 @@
                                     android:layout_marginTop="10dp"
                                     android:text="@string/rapide1"
                                     android:textStyle="bold"
-                                    android:textSize="25dp" />
+                                    android:textSize="25dp"
+                                    android:onClick="afficherInfo"/>
 
                                 <TextView
                                     android:layout_weight="0.2"
@@ -1686,7 +1688,6 @@
                     </LinearLayout>
                 </LinearLayout>
 
-
                 <!--BOUTON AFFICHER LA COMMANDE-->
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -1710,8 +1711,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toLeftOf="@id/total"
                         android:text="Afficher la commande"
-                        android:textSize="10dp"
-                        android:onClick="showOrder"/>
+                        android:textSize="10dp"/>
 
                 </RelativeLayout>
 
