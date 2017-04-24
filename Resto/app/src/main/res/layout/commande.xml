@@ -47,12 +47,11 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp">
 
-
         <!--Quantite Initule et Prix-->
         <LinearLayout
             android:id="@+id/qip"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/quantite"
@@ -78,6 +77,17 @@
                 android:text="@string/prix_item"
                 android:textSize="15dp"
                 android:layout_toRightOf="@+id/intitule"/>
+        </LinearLayout>
+
+        <!--COMMANDE-->
+        <LinearLayout
+            android:id="@+id/your_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/qip">
+
+
         </LinearLayout>
 
 

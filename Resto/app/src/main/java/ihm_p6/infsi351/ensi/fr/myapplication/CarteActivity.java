@@ -55,6 +55,16 @@ public class CarteActivity extends AppCompatActivity{
 
 
     /**
+     * Affiche la commande
+     * @param v
+     */
+    public void showOrder(View v){
+        Intent intent = new Intent(CarteActivity.this,CommandeActivity.class);
+        startActivity(intent);
+    }
+
+
+    /**
      * afficher les différentes catégories (entrées, plats, desserts...)
      * @param v la catégorie sur laquelle on  appuyé
      */

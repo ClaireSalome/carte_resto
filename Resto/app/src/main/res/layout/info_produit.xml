@@ -271,7 +271,8 @@
             android:layout_height="wrap_content"
             android:text= "@string/add_commande"
             android:textSize="15dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:onClick="modifCommande"/>
 
 
         <!--BOUTON AFFICHER LA COMMANDE-->

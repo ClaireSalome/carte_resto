@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandeActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.commande);
-
+        //displayOrder() ;
 
     }
     /**

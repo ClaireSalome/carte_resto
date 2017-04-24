@@ -53,4 +53,8 @@ public class InfoActivity extends CarteActivity {
         startActivity(intent);
         //super.afficherMenu(v);
     }
+
+    public void modifCommande(View v){
+
+    }
 }

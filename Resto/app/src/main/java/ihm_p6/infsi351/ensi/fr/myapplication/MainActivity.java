@@ -6,11 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private int[] langue=new int[2];
     private String[] l=new String[2];
     private int i=0;
+    /**
+     * pour stocker ce que le client va commander
+     */
+    private List<String> commande = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,4 +99,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public List<String> getCommande(){
+        return commande;
+    }
+
+    public void setCommande(List<String> l){
+
+    }
 }
