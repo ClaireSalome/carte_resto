@@ -4,6 +4,22 @@
     <string name="carte">Carte</string>
     <string name="compte">Compte</string>
 
+    <!-- barre de navigation pour la fenetre compte client -->
+    <string name="info">Informations</string>
+    <string name="modif">Modifier</string>
+
+    <!-- coordonnées client-->
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="pseudo">Pseudonyme</string>
+    <string name="email">E-mail</string>
+    <string name="mot2passe">Mot de passe</string>
+
+    <!--fenetre points de fidelite-->
+    <string name="texte_fidelite">Vous avez accumulé: </string>
+    <string name="texte_fidelite_suite"> points</string>
+    <string name="texte_fidelite_suite2">Vous pouvez les utilisés à tout moment pour vous offrir un de nos délices.</string>
+
     <!--Onglets-->
     <string name="favoris">Favoris</string>
     <string name="plat_jour">Plats du jour</string>
@@ -149,7 +165,7 @@
 
     <string-array name="sauce_array">
         <item>Choix sauce</item>
-        <item>ketchut</item>
+        <item>ketchup</item>
         <item>mayonnaise</item>
         <item>barbecue</item>
     </string-array>
@@ -160,5 +176,18 @@
         <item>saignant</item>
         <item>Ã  point</item>
         <item>bien cuit</item>
+    </string-array>
+
+    <!-- partie Lila-->
+    <string-array name="country_names">
+        <item>\u00A0\u00A0+1 English"</item>
+    </string-array>
+
+    <string-array name="country_codes">
+        <item>1</item>
+    </string-array>
+
+    <string-array name="country_flags">
+        <item>@drawable/anglais</item>
     </string-array>
 </resources>

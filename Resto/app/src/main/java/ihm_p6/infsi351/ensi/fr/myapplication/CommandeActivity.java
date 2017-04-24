@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,6 +19,13 @@ public class CommandeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.commande);
         //displayOrder() ;
+
+        //la toolbar
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+
+        //UP button
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
     /**

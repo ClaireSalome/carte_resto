@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View ;
 import android.widget.LinearLayout;
 
@@ -21,6 +22,14 @@ public class CarteActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.carte);
+
+
+        //la toolbar
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+
+        //UP button
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         findViewById(idViewVisible).setVisibility(View.VISIBLE);
         findViewById(idBoutonMenu).setBackgroundColor(Color.GRAY);

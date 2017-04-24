@@ -3,33 +3,33 @@ package ihm_p6.infsi351.ensi.fr.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.TextView;
+import android.graphics.Typeface;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int[] langue=new int[2];
     private String[] l=new String[2];
     private int i=0;
-    /**
-     * pour stocker ce que le client va commander
-     */
-    private List<String> commande = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.langue).setBackgroundResource(R.drawable.francais);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
 
+        TextView nomResto=(TextView)findViewById(R.id.nomResto);
+        setFont(nomResto,"AlexBrush-Regular.ttf");
 
-
-        langue[0]=R.drawable.francais;
-        langue[1]=R.drawable.anglais;
+        //la vue langue
+        l[0]="Français";
+        l[1]="English";
+        TextView langue=(TextView)findViewById(R.id.langue);
+        langue.setText(l[0]);
+        setFont(langue,"AlexBrush-Regular.ttf");
 
         //Ajouter le listener au bouton left_btn
         findViewById((R.id.left_btn)).setOnClickListener(new View.OnClickListener() {
@@ -72,39 +72,39 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Acceder au compte d'un client
     public void afficherCompte(View v){
-        Intent intent= new Intent(MainActivity.this,CompteActivity.class);
+        Intent intent= new Intent(MainActivity.this,CompteClientActivity.class);
         startActivity(intent);
     }
 
     public void defilerAgauche(View v){
-        if(i==0){
-            findViewById(R.id.langue).setBackgroundResource(R.drawable.francais);
-        }
-        else{
-            i=1;
-            findViewById(R.id.langue).setBackgroundResource(R.drawable.anglais);
-            Toast.makeText(this,"COUCOU_Gauche",Toast.LENGTH_LONG).show();
+        TextView langue=(TextView)findViewById(R.id.langue);
+        if(i==1){
+            i=0;
+            langue.setText(l[0]);
+            setFont(langue,"AlexBrush-Regular.ttf");
         }
     }
 
     public void defilerAdroite(View v){
-        if(i==1){
-            findViewById(R.id.langue).setBackgroundResource(R.drawable.francais);
-        }
-        else{
-            i=0;
-            findViewById(R.id.langue).setBackgroundResource(R.drawable.anglais);
-            Toast.makeText(this,"COUCOU_Droite",Toast.LENGTH_LONG).show();
+        TextView langue=(TextView)findViewById(R.id.langue);
+        if(i==0){
+            i=1;
+            langue.setText(l[1]);
+            setFont(langue,"AlexBrush-Regular.ttf");
         }
     }
 
-
-    public List<String> getCommande(){
-        return commande;
+    public void setFont(TextView textView, String fontName) {
+        if(fontName != null){
+            try {
+                Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/" + fontName);
+                textView.setTypeface(typeface);
+            } catch (Exception e) {
+                Log.e("FONT", fontName + " not found", e);
+            }
+        }
     }
 
-    public void setCommande(List<String> l){
-
-    }
 }

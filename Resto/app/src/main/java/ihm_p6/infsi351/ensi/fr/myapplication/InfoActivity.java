@@ -2,6 +2,7 @@ package ihm_p6.infsi351.ensi.fr.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,13 @@ public class InfoActivity extends CarteActivity {
             }
         });
         */
+
+        //la toolbar
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+
+        //UP button
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
