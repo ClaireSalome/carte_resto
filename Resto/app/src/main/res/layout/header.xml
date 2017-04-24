@@ -15,6 +15,16 @@
             android:background="@drawable/home_page"
             android:onClick="homePage"/>
 
+        <!--Compte : visible seulement si connecté-->
+        <Button
+            android:id="@+id/compte"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@id/homePage"
+            android:text="Mon Compte"
+            android:visibility="invisible"
+            />
+
         <Button
             android:id="@+id/serveur"
             android:layout_width="50dp"

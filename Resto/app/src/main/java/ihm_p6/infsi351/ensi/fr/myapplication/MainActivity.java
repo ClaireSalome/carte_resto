@@ -9,10 +9,13 @@ import android.widget.TextView;
 import android.graphics.Typeface;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private String[] l=new String[2];
     private int i=0;
+    public static ArrayList<String> order = new ArrayList<String>() ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,4 +110,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static ArrayList<String> getOrder() {
+        return order;
+    }
+
+    public static void setOrder(ArrayList<String> new_l){
+        order = new_l;
+    }
 }

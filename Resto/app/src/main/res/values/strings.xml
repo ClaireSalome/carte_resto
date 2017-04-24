@@ -134,6 +134,7 @@
 
     <!--Commande-->
     <string name="commande_complete">Voir l ensemble des commandes</string>
+    <string name="commande_cachee">Cacher l ensemble des commandes</string>
     <string name="quantite">Quantité</string>
     <string name="intitule">Intitulé</string>
     <string name="prix_item">Prix</string>

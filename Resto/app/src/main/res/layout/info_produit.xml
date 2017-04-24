@@ -33,6 +33,16 @@
             android:onClick="homePage"
             android:layout_toLeftOf="@+id/langue"/>
 
+        <!--Compte : visible seulement si connecté-->
+        <Button
+            android:id="@+id/compte"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@id/homePage"
+            android:text="Mon Compte"
+            android:visibility="invisible"
+            />
+
         <Button
             android:id="@+id/serveur"
             android:layout_width="50dp"
@@ -159,12 +169,14 @@
             android:layout_height="30dp"
             android:layout_margin="10dp">
             <TextView
+                android:id="@+id/infoTitre"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/rapide1"
                 android:textSize="25dp"/>
 
             <TextView
+                android:id="@+id/infoPrix"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/prix_rapide1"
@@ -315,7 +327,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@id/total"
                 android:text="Afficher la commande"
-                android:textSize="10dp"/>
+                android:textSize="10dp"
+                android:onClick="showOrder"/>
 
         </RelativeLayout>
 

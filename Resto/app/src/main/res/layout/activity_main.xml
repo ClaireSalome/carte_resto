@@ -60,7 +60,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/left_button"
                 android:layout_weight="0.12"
-                android:textColor="#C71585"
+                 android:textColor="#C71585"
                 android:textColorLink="#000010"
                 android:onClick="defilerAgauche"/>
 
