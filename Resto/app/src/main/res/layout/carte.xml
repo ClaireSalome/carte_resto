@@ -47,7 +47,7 @@
                 android:id="@id/langue"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/francais"
+                android:background="@drawable/fr"
                 android:layout_toLeftOf="@id/serveur"/>
 
         </RelativeLayout>

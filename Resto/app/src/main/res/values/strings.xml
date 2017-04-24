@@ -2,16 +2,12 @@
     <string name="app_name">Resto</string>
     <string name="nom_restaurant">Resto</string>
     <string name="carte">Carte</string>
-    <string name="compte">Compte</string>
 
     <!-- barre de navigation pour la fenetre compte client -->
     <string name="info">Informations</string>
     <string name="modif">Modifier</string>
 
     <!-- coordonnées client-->
-    <string name="nom">Nom</string>
-    <string name="prenom">Prenom</string>
-    <string name="pseudo">Pseudonyme</string>
     <string name="email">E-mail</string>
     <string name="mot2passe">Mot de passe</string>
 
@@ -141,7 +137,6 @@
     <string name="quantite">Quantité</string>
     <string name="intitule">Intitulé</string>
     <string name="prix_item">Prix</string>
-    <string name="valider">Valider</string>
 
     <!-- info produit -->
     <string name="ingredient_rapide1">Ingredients: pain, steak, salade, tomates, cheddar</string>
@@ -190,4 +185,22 @@
     <string-array name="country_flags">
         <item>@drawable/anglais</item>
     </string-array>
+
+    <string name="connexion">Connexion</string>
+    <string name="membre">Déja membre</string>
+    <string name="login">Login</string>
+    <string name="newMembre">Nouveau membre</string>
+    <string name="compte">Creer un compte</string>
+    <string name="identifiant">Identifiant</string>
+    <string name="password">Mot de passe</string>
+    <string name="valider">Valider</string>
+    <string name="nom">Nom*:</string>
+    <string name="prenom">Prenom*:</string>
+    <string name="pseudo">Pseudo*:</string>
+    <string name="titulaie">Titulaire :</string>
+    <string name="crypto">Cryptogramme :</string>
+    <string name="num">Numeros :</string>
+    <string name="coord">Coordonnées bancaire </string>
+    <string name="error">"Votre mot de passe ou votre identifiant n'est pas reconnu"</string>
+
 </resources>

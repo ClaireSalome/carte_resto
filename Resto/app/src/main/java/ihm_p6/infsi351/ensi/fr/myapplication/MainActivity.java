@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Acceder au compte d'un client
     public void afficherCompte(View v){
-        Intent intent= new Intent(MainActivity.this,CompteClientActivity.class);
+        Intent intent= new Intent(MainActivity.this,CompteActivity.class);
         startActivity(intent);
     }
 
