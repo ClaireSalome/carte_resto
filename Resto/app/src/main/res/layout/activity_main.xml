@@ -16,7 +16,7 @@
         android:weightSum="1"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
+        <!--<android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"/>
+            android:theme="?attr/actionBarTheme"/>-->
 
 
         <TextView
@@ -36,8 +36,7 @@
             android:textColor="#53B50A"
             android:textSize="80dp"
             android:gravity="center"
-            android:background="@drawable/border"
-            android:layout_below="@id/toolbar"/>
+            android:background="@drawable/border" />
 
 
         <TextView
@@ -65,18 +64,30 @@
                 android:onClick="defilerAgauche"/>
 
             <TextView
-                android:id="@+id/langue"
+                android:id="@+id/flag"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
+                android:background="@drawable/france"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="100dp"
+                android:layout_toRightOf="@+id/left_btn"
+                android:layout_toLeftOf="@+id/right_btn"
+                android:layout_alignParentBottom="false"/>
+
+            <TextView
+                android:id="@+id/langue"
+                android:layout_width="match_parent"
                 android:background="@drawable/border"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/flag"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/left_btn"
+                android:layout_toLeftOf="@+id/right_btn"
                 android:layout_weight="0.72"
                 android:textSize="35dp"
                 android:textColor="#000000"
-                android:gravity="center"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/left_btn"
-                android:layout_toLeftOf="@+id/right_btn"
-                android:layout_alignParentBottom="true"/>
+                android:gravity="center"/>
 
             <Button
                 android:id="@+id/right_btn"
@@ -88,9 +99,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_width="50dp"
                 android:onClick="defilerAdroite"/>
-
-
-
 
         </RelativeLayout>
 
@@ -120,7 +128,7 @@
             android:layout_height="45dp"
             android:layout_below="@+id/carte_btn"/>
         <Button
-            android:text="@string/compte"
+            android:text="Compte"
             android:layout_width="277dp"
             android:layout_height="wrap_content"
             android:id="@+id/compte_btn"

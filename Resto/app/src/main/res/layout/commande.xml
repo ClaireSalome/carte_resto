@@ -8,22 +8,24 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"/>
+
 
     <!-- BARRE DE MENU PRINCIPAL-->
     <RelativeLayout
         android:id="@+id/home"
         android:layout_width="match_parent"
         android:layout_height="50dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"/>
 
         <Button
             android:id="@+id/homePage"
@@ -45,7 +47,7 @@
             android:id="@id/langue"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/francais"
+            android:background="@drawable/fr"
             android:layout_toLeftOf="@id/serveur"
             android:onClick="changeLanguage"/>
 

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+    <include layout="@layout/header"></include>
+
+    <TextView
+        android:id="@+id/titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="35dp"
+        android:text="@string/compte"
+        android:textColor="#000000"
+        android:layout_below="@+id/toolbar"/>
+
+    <TextView
+        android:id="@+id/nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nom"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:layout_below="@+id/titre"
+        android:layout_alignBottom="@+id/newName" />
+
+    <EditText
+        android:id="@+id/newName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/titre"
+        android:textColor="#000000"
+        android:layout_toEndOf="@+id/tit"
+        android:layout_toRightOf="@+id/tit" />
+
+    <TextView
+        android:id="@+id/prenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prenom"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="35dp"
+        android:layout_below="@+id/nom"
+        android:layout_alignBottom="@+id/newPrenom" />
+
+    <EditText
+        android:id="@+id/newPrenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="35dp"
+        android:textColor="#000000"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/prenom"
+        android:layout_below="@id/newName"/>
+
+    <TextView
+        android:id="@+id/pseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pseudo"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:textColor="#000000"
+        android:layout_below="@id/prenom"
+        android:layout_alignBottom="@+id/newPseudo" />
+
+    <EditText
+        android:id="@+id/newPseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_alignParentRight="true"
+        android:textColor="#000000"
+        android:textSize="35dp"
+        android:layout_below="@+id/newPrenom"
+        android:layout_toRightOf="@+id/pseudo"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:id="@+id/blank"
+        android:layout_below="@+id/pseudo"/>
+
+    <TextView
+        android:id="@+id/coord"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:text="@string/coord"
+        android:gravity="center_horizontal"
+        android:textSize="35dp"
+        android:layout_below="@+id/blank"/>
+
+    <TextView
+        android:id="@+id/tit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titulaie"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:layout_below="@+id/coord"
+        android:layout_alignBottom="@+id/titulaire" />
+
+    <EditText
+        android:id="@+id/titulaire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/coord"
+        android:textColor="#000000"
+        android:layout_alignParentRight="true"
+        android:textSize="35dp"
+        android:layout_toRightOf="@+id/prenom"
+        android:layout_toEndOf="@+id/prenom" />
+
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/num"
+        android:textSize="35dp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_below="@+id/tit"
+        android:layout_alignBottom="@+id/newNum" />
+
+    <EditText
+        android:id="@+id/newNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="35dp"
+        android:layout_below="@+id/titulaire"
+        android:textColor="#000000"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/titulaire"
+        android:layout_alignStart="@+id/titulaire" />
+
+    <TextView
+        android:id="@+id/cryp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/crypto"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:layout_below="@+id/num"
+        android:layout_alignBottom="@+id/crypto" />
+
+    <EditText
+        android:id="@+id/crypto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="35dp"
+        android:layout_below="@+id/newNum"
+        android:layout_toRightOf="@+id/cryp"
+        android:textColor="#000000"
+        android:layout_alignParentRight="true"/>
+
+    <Button
+        android:id="@+id/valideNewCompte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:textSize="30dp"
+        android:text="@string/valider"
+        android:textColor="#000000"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/cryp"
+        android:layout_alignRight="@+id/titre"
+        android:layout_alignEnd="@+id/titre" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_weight="0.1"/>
+
+
+</RelativeLayout>
+    </ScrollView>

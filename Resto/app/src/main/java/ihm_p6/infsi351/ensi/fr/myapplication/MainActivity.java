@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         langue.setText(l[0]);
         setFont(langue,"AlexBrush-Regular.ttf");
 
+        TextView flag=(TextView)findViewById(R.id.flag);
+        flag.setBackground(getResources().getDrawable(R.drawable.france));
+
         //Ajouter le listener au bouton left_btn
         findViewById((R.id.left_btn)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,19 +83,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void defilerAgauche(View v){
         TextView langue=(TextView)findViewById(R.id.langue);
+        TextView flag=(TextView)findViewById(R.id.flag);
         if(i==1){
             i=0;
             langue.setText(l[0]);
             setFont(langue,"AlexBrush-Regular.ttf");
+
+            flag.setBackground(getResources().getDrawable(R.drawable.france));
         }
     }
 
     public void defilerAdroite(View v){
         TextView langue=(TextView)findViewById(R.id.langue);
+        TextView flag=(TextView)findViewById(R.id.flag);
         if(i==0){
             i=1;
             langue.setText(l[1]);
             setFont(langue,"AlexBrush-Regular.ttf");
+
+            flag.setBackground(getResources().getDrawable(R.drawable.usa));
         }
     }
 

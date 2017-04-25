@@ -13,7 +13,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/home_page"
-            android:onClick="homePage"/>
+            android:onClick="homePage"
+            android:layout_toLeftOf="@+id/langue"/>
 
         <Button
             android:id="@+id/serveur"

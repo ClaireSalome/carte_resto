@@ -1,15 +1,15 @@
 package ihm_p6.infsi351.ensi.fr.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.test.suitebuilder.TestMethod;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/**
- * Created by lila.
- */
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -24,7 +24,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.afficher_profile);
 
+        //la toolbar
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+
+        //UP button
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -72,6 +75,25 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void setNom(EditText et){ edit_nom.setText(et.getText());}
+
+    /**
+     * retour à la page d'accueil
+     * @param v
+     */
+    public void homePage(View v){
+        Intent intent=new Intent(ProfileActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Affiche une boite dialogue pour confirmer l'appel au serveur
+     * @param v
+     */
+    public void callWaiter(View v){
+
+        new AlertDialog.Builder(this).setMessage("Appeler un serveur ?").setPositiveButton("Oui", null).setNegativeButton("Non",null).show();
+    }
 
 }
 

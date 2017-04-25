@@ -20,6 +20,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
+    <include layout="@layout/header"></include>
 
     <TextView
         android:id="@+id/blank"

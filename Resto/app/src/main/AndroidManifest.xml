@@ -43,6 +43,15 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CompteActivity" />
+        </activity>
+
         <activity android:name=".InfoActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -100,6 +109,15 @@
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+
+        <activity android:name=".InscriptionActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CompteActivity" />
         </activity>
 
     </application>

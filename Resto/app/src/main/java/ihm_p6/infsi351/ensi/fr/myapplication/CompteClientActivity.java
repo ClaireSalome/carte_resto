@@ -1,12 +1,15 @@
 package ihm_p6.infsi351.ensi.fr.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 /**
  * Created by lila on 20/04/17.
@@ -51,6 +54,25 @@ public class CompteClientActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    /**
+     * retour à la page d'accueil
+     * @param v
+     */
+    public void homePage(View v){
+        Intent intent=new Intent(CompteClientActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Affiche une boite dialogue pour confirmer l'appel au serveur
+     * @param v
+     */
+    public void callWaiter(View v){
+
+        new AlertDialog.Builder(this).setMessage("Appeler un serveur ?").setPositiveButton("Oui", null).setNegativeButton("Non",null).show();
     }
 
 
