@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView ;
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InfoActivity extends CarteActivity {
 
     @Override

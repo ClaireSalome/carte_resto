@@ -145,7 +145,7 @@
     <string name="more">+</string>
     <string name="quantite_commande">1</string>
 
-    <string name="supprimer_ingredients">supprimer un/des\ningrÃ©dient(s)</string>
+    <string name="supprimer_ingredients">supprimer un ingredient</string>
     <string name="add_commande">Ajouter Ã  la commande</string>
     <string name="image_rapide1">image du plat</string>
 
