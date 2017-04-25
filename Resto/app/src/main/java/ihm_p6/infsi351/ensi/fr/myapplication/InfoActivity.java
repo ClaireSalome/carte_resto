@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView ;
 import android.support.v7.app.AppCompatActivity;
 
 public class InfoActivity extends CarteActivity {
@@ -59,7 +60,25 @@ public class InfoActivity extends CarteActivity {
     }
 
     public void modifCommande(View v){
+        ArrayList<String> com = new ArrayList<String>() ;
+//        String intitul = (String)((TextView)findViewById(R.id.infoTitre)).getText() ;
+//        String prix = (String)((TextView)findViewById(R.id.infoPrix)).getText() ;
+//        String qu = ((EditText)findViewById(R.id.editQuantite)).getText().toString() ;
+//        com.add(qu+"_"+intitul+"_"+prix);
+        com.add("2_Hamburger_11€");
+        MainActivity.setOrder(com);
 
+    }
+
+
+
+    /**
+     * Affiche la commande
+     * @param v
+     */
+    public void showOrder(View v){
+        Intent intent = new Intent(InfoActivity.this,CommandeActivity.class);
+        startActivity(intent);
     }
 
     /**
