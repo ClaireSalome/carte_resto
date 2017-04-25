@@ -1,6 +1,7 @@
 package ihm_p6.infsi351.ensi.fr.myapplication;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView nomResto=(TextView)findViewById(R.id.nomResto);
         setFont(nomResto,"AlexBrush-Regular.ttf");
+
 
         //la vue langue
         l[0]="Français";
@@ -125,5 +127,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static void setOrder(ArrayList<String> new_l){
         order = new_l;
+    }
+
+    /**
+     * Affiche une boite dialogue pour confirmer l'appel au serveur
+     * @param v
+     */
+    public void callWaiter(View v){
+
+        new AlertDialog.Builder(this).setMessage("Appeler un serveur ?").setPositiveButton("Oui", null).setNegativeButton("Non",null).show();
     }
 }

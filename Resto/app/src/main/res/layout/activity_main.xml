@@ -16,7 +16,7 @@
         android:weightSum="1"
         android:orientation="vertical">
 
-        <!--<android.support.v7.widget.Toolbar
+        <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,14 @@
             android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"/>-->
+            android:theme="?attr/actionBarTheme"/>
+        <Button
+            android:id="@+id/serveur"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/waiter"
+            android:layout_alignParentRight="true"
+            android:onClick="callWaiter" />
 
 
         <TextView
@@ -36,7 +43,8 @@
             android:textColor="#53B50A"
             android:textSize="80dp"
             android:gravity="center"
-            android:background="@drawable/border" />
+            android:background="@drawable/border"
+            android:layout_below="@+id/toolbar"/>
 
 
         <TextView
