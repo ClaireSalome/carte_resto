@@ -33,16 +33,6 @@
             android:onClick="homePage"
             android:layout_toLeftOf="@+id/langue"/>
 
-        <!--Compte : visible seulement si connecté-->
-        <Button
-            android:id="@+id/compte"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_toLeftOf="@id/homePage"
-            android:text="Mon Compte"
-            android:visibility="invisible"
-            />
-
         <Button
             android:id="@+id/serveur"
             android:layout_width="50dp"
@@ -56,7 +46,19 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/fr"
-            android:layout_toLeftOf="@id/serveur"/>
+            android:layout_toLeftOf="@id/serveur"
+            android:onClick="changeLanguage"/>
+
+        <!--Compte : visible seulement si connecté-->
+        <Button
+            android:id="@+id/compte"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@id/homePage"
+            android:text="Mon Compte"
+            android:visibility="invisible"
+            />
+
 
     </RelativeLayout>
 

@@ -40,8 +40,8 @@ public class CompteActivity extends AppCompatActivity{
         compte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(CompteActivity.this,InscriptionActivity.class);
-                startActivity(in);
+                inscription(v);
+
             }
         });
     }
@@ -63,6 +63,10 @@ public class CompteActivity extends AppCompatActivity{
     public void callWaiter(View v){
 
         new AlertDialog.Builder(this).setMessage("Appeler un serveur ?").setPositiveButton("Oui", null).setNegativeButton("Non",null).show();
+    }
+
+    public void inscription(View v){
+        startActivity(new Intent(CompteActivity.this,InscriptionActivity.class));
     }
 
     public void setFont(TextView textView, String fontName) {

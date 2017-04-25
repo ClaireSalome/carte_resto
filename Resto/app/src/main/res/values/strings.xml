@@ -201,7 +201,7 @@
     <string name="titulaie">Titulaire :</string>
     <string name="crypto">Cryptogramme :</string>
     <string name="num">Numeros :</string>
-    <string name="coord">Coordonnées bancaire </string>
+    <string name="coord">Coordonnées bancaires </string>
     <string name="error">"Votre mot de passe ou votre identifiant n'est pas reconnu"</string>
 
 </resources>
