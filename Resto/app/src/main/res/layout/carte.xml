@@ -1,0 +1,1745 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ihm_p6.infsi351.ensi.fr.myapplication.CarteActivity"
+    android:id="@+id/carte"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"/>
+
+        <!-- BARRE DE MENU PRINCIPAL-->
+        <RelativeLayout
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/homePage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/home_page"
+                android:onClick="homePage"
+                android:layout_toLeftOf="@+id/langue"/>
+
+            <!--Compte : visible seulement si connecté-->
+            <Button
+                android:id="@+id/compte"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_toLeftOf="@id/homePage"
+                android:text="Mon Compte"
+                android:visibility="invisible"
+                />
+
+            <Button
+                android:id="@+id/serveur"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:background="@drawable/waiter"
+                android:layout_alignParentRight="true"
+                android:onClick="callWaiter" />
+
+            <Button
+                android:id="@id/langue"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/fr"
+                android:layout_toLeftOf="@id/serveur"/>
+
+        </RelativeLayout>
+
+        <!--BARRE DES CATEGORIES -->
+        <LinearLayout
+            android:id="@+id/barreMenu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/home"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <!--Favoris à n'afficher que quand on est connecté-->
+            <TextView
+                android:id="@+id/favoris"
+                android:layout_weight="0.2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/favoris"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:background="@drawable/border_rectangle"
+                android:onClick="afficherMenu"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/platJour"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="@string/plat_jour"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:background="@drawable/border_rectangle"
+                android:onClick="afficherMenu"/>
+
+            <TextView
+                android:id="@+id/entree"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="@string/entree"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:background="@drawable/border_rectangle"
+                android:onClick="afficherMenu"/>
+
+            <TextView
+                android:id="@+id/plat"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="@string/plat"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:background="@drawable/border_rectangle"
+                android:onClick="afficherMenu"/>
+
+            <TextView
+                android:id="@+id/dessert"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="@string/dessert"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:background="@drawable/border_rectangle"
+                android:onClick="afficherMenu"/>
+
+            <TextView
+                android:id="@+id/boisson"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:text="@string/boisson"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:background="@drawable/border_rectangle"
+                android:onClick="afficherMenu"/>
+
+
+        </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/barreMenu">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--Liste des plats du jour-->
+                <LinearLayout
+                    android:id="@+id/menu_pdj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/barreMenu"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/pdj1"
+                        android:layout_weight="0.33"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@drawable/border_rectangle"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/pdj1"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_pdj1"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/def_pdj1"
+                            android:layout_margin="5dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pdj2"
+                        android:layout_weight="0.33"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@drawable/border_rectangle"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/pdj2"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_pdj2"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/def_pdj2"
+                            android:layout_margin="5dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pdj3"
+                        android:layout_weight="0.33"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@drawable/border_rectangle"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/pdj3"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_pdj3"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/def_pdj3"
+                            android:layout_margin="5dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--LISTE DES ENTREES-->
+                <LinearLayout
+                    android:id="@+id/menu_entree"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/barreMenu"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!--Entrées froides-->
+                    <LinearLayout
+                        android:id="@+id/entree_f"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/entree_f"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/entree_f"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuEntree"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_entreef"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/entreef1"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_entreef1"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+
+                            </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/defentreef1"
+                            android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/entreef2"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_entreef2"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--Entrées chaudes-->
+                    <LinearLayout
+                        android:id="@+id/entree_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/entree_c"
+                            android:textSize="25dp"
+                            android:textStyle="bold"
+                            android:layout_margin="10dp"/>
+
+                        <Button
+                            android:id="@id/entree_c"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:textStyle="bold"
+                            android:onClick="afficherSousMenuEntree"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_entreec"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/entreec1"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_entreec1"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/entreec2"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_entreec2"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defentreec2"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--Liste des plats-->
+                <LinearLayout
+                    android:id="@+id/menu_plat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/barreMenu"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!--Salades-->
+                    <LinearLayout
+                        android:id="@+id/salade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/salade"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/salade"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuPlat"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_salade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/salade1"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_salade1"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/salade2"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_salade2"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defsalade2"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                    <!--Plats rapides-->
+                    <LinearLayout
+                        android:id="@+id/rapide"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/rapide"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/rapide"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuPlat"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ssmenu_rapide"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/rapide1"
+                            android:layout_weight="0.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/btn_rapide1"
+                                    android:layout_weight="0.5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/rapide1"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"
+                                    android:onClick="afficherInfo"/>
+
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_rapide1"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defrapide1"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/rapide2"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/rapide2"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp" />
+
+                                <TextView
+                                    android:layout_weight="0.3"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_rapide2"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defrapide2"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/rapide3"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/rapide3"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp" />
+
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_rapide3"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defrapide3"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--Spécialités-->
+                    <LinearLayout
+                        android:id="@+id/specialite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/specialite"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/specialite"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuPlat"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_spe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/spe1"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/spe1"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp" />
+
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_spe1"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defspe1"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/spe2"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/spe2"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp" />
+
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_spe2"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defspe2"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/spe3"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/spe3"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp" />
+
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_spe3"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defspe3"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <!--Liste des desserts-->
+                <LinearLayout
+                    android:id="@+id/menu_dessert"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/barreMenu"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!--Desserts-->
+                    <LinearLayout
+                        android:id="@+id/patisseries"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/patisserie"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/patisseries"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuDessert"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_dessert"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/dessert1"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_dessert1"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/dessert2"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                            <TextView
+                                android:layout_weight="0.1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_dessert2"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/dessert3"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_dessert3"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defdessert3"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--Glaces-->
+                    <LinearLayout
+                        android:id="@+id/glace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/glace"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/glace"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuDessert"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_glaces"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_weight="0.7"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/glace1"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+
+                                <TextView
+                                    android:layout_weight="0.2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/prix_glace1"
+                                    android:gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textStyle="bold"
+                                    android:textSize="25dp"/>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defglace1"
+                                android:layout_margin="5dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/glace2"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_glace2"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--LISTE DES BOISSONS-->
+                <LinearLayout
+                    android:id="@+id/menu_boisson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/barreMenu"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!--Eau-->
+                    <LinearLayout
+                        android:id="@+id/eau"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/holo_green_light">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/eau"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/eau"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuBoisson"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ssmenu_eau"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!--Evian 50cL-->
+                        <LinearLayout
+                            android:id="@+id/evian"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/evian"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_ev"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <!--Evian 1L-->
+                        <LinearLayout
+                            android:id="@+id/evian1"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/evian1"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_ev1"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <!--Badoit-->
+                        <LinearLayout
+                            android:id="@+id/badoit"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/badoit"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_bad"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!--Boissons fraîches-->
+                    <LinearLayout
+                        android:id="@+id/boisson_f"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/boissons_f"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/boisson_f"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuBoisson"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_boisson_f"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!--Coca-->
+                        <LinearLayout
+                            android:id="@+id/coca"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/coca"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_coca"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <!--Sprite-->
+                        <LinearLayout
+                            android:id="@+id/sprite"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/sprite"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_sprite"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <!--Jus orange-->
+                        <LinearLayout
+                            android:id="@+id/jus"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/jus"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_jus"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--Boissons chaudes-->
+                    <LinearLayout
+                        android:id="@+id/boisson_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/boissons_c"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/boisson_c"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuBoisson"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_boisson_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!--Chocolat-->
+                        <LinearLayout
+                            android:id="@+id/choco"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/choco"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_choco"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <!--Café-->
+                        <LinearLayout
+                            android:id="@+id/cafe"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/cafe"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_cafe"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                    <!--Vins-->
+                    <LinearLayout
+                        android:id="@+id/vin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/holo_green_light"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vin"
+                            android:textSize="25dp"
+                            android:layout_margin="10dp"
+                            android:textStyle="bold"/>
+
+                        <Button
+                            android:id="@id/vin"
+                            android:layout_weight="0.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/down_arrow"
+                            android:onClick="afficherSousMenuBoisson"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ssmenu_vin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!--Bordeaux-->
+                        <LinearLayout
+                            android:id="@+id/bordeaux"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/bordeau"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_vin"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+
+                        <!--Alsace-->
+                        <LinearLayout
+                            android:id="@+id/alsace"
+                            android:layout_weight="0.33"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_rectangle"
+                            android:layout_marginTop="10dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_weight="0.7"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/alsace"
+                                android:textStyle="bold"
+                                android:textSize="25dp" />
+
+                            <TextView
+                                android:layout_weight="0.2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prix_vin"
+                                android:gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"
+                                android:textSize="25dp"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--BOUTON AFFICHER LA COMMANDE-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total : 45€"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:layout_alignParentRight="true"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@id/total"
+                        android:text="Afficher la commande"
+                        android:textSize="10dp"
+                        android:onClick="showOrder"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

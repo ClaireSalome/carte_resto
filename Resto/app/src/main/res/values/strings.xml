@@ -1,0 +1,207 @@
+<resources>
+    <string name="app_name">Le Délice</string>
+    <string name="nom_restaurant">Le Délice</string>
+    <string name="carte">Carte</string>
+
+    <!-- barre de navigation pour la fenetre compte client -->
+    <string name="info">Informations</string>
+    <string name="modif">Modifier</string>
+
+    <!-- coordonnées client-->
+    <string name="email">E-mail*</string>
+    <string name="mot2passe">Mot de passe*</string>
+
+    <!--fenetre points de fidelite-->
+    <string name="texte_fidelite">Vous avez accumulé: </string>
+    <string name="texte_fidelite_suite"> points</string>
+    <string name="texte_fidelite_suite2">Vous pouvez les utilisés à tout moment pour vous offrir un de nos délices.</string>
+
+    <!--Onglets-->
+    <string name="favoris">Favoris</string>
+    <string name="plat_jour">Plats du jour</string>
+    <string name="entree">Entrées</string>
+    <string name="plat">Plats</string>
+    <string name="dessert">Desserts</string>
+    <string name="boisson">Boissons</string>
+
+    <!--Barre de menu-->
+    <string name="pageAccueil">Accueil</string>
+    <string name="langue">Langues</string>
+    <string name="serveur">Appeler serveur</string>
+
+    <!--Plat du jour-->
+    <string name="pdj1">Magret de canard</string>
+    <string name="def_pdj1">servi avec des pommes de terre et sauce au miel</string>
+    <string name="prix_pdj1">15€</string>
+
+    <string name="pdj2">Blanquette de veau</string>
+    <string name="def_pdj2">célèbre blanquette traditionnelle</string>
+    <string name="prix_pdj2">14€</string>
+
+    <string name="pdj3">Hamburger savoyard</string>
+    <string name="def_pdj3">servi avec des frites</string>
+    <string name="prix_pdj3">10€</string>
+
+    <!--Entrées-->
+    <string name="entree_f">Entrées froides</string>
+    <string name="entreef1">Assiette de charcuterie</string>
+    <string name="defentreef1">servi avec salade</string>
+    <string name="prix_entreef1">8€</string>
+    <string name="entreef2">Tomates Mozzarella</string>
+    <string name="prix_entreef2">7.50€</string>
+
+    <string name="entree_c">Entrées chaudes</string>
+    <string name="entreec1">Salade de chèvre chaud</string>
+    <string name="prix_entreec1">8.50€</string>
+    <string name="entreec2">Oeuf mollet</string>
+    <string name="defentreec2">servi avec salade</string>
+    <string name="prix_entreec2">7€</string>
+
+    <!--Plats-->
+    <string name="salade">Salades</string>
+    <string name="salade1">Salade César</string>
+    <string name="prix_salade1">9.50€</string>
+    <string name="salade2">Salade nordique</string>
+    <string name="defsalade2">à base de saumon fumé et crevettes</string>
+    <string name="prix_salade2">11€</string>
+
+    <string name="rapide">Plats rapides</string>
+    <string name="rapide1">Hamburger fait maison</string>
+    <string name="defrapide1">servi avec des pommes frites</string>
+    <string name="prix_rapide1">11€</string>
+    <string name="rapide2">Quiche lorraine</string>
+    <string name="defrapide2">servi avec salade</string>
+    <string name="prix_rapide2">10.50€</string>
+    <string name="rapide3">Croq Italien</string>
+    <string name="defrapide3">servi avec salade</string>
+    <string name="prix_rapide3">10€</string>
+
+    <string name="specialite">Spécialités</string>
+    <string name="spe1">Carré d agneau</string>
+    <string name="defspe1">servi avec haricots verts et flageolets</string>
+    <string name="prix_spe1">15€</string>
+    <string name="spe2">Filet de rouget</string>
+    <string name="defspe2">servi avec riz et ratatouille</string>
+    <string name="prix_spe2">17€</string>
+    <string name="spe3">Poulet rôti</string>
+    <string name="defspe3">avec ses pommes de terre sautées au thym</string>
+    <string name="prix_spe3">15€</string>
+
+    <!--Desserts-->
+    <string name="patisserie">Desserts</string>
+    <string name="dessert1">Café gourmand</string>
+    <string name="prix_dessert1">8.50€</string>
+    <string name="dessert2">Mousse au chocolat maison</string>
+    <string name="prix_dessert2">7€</string>
+    <string name="dessert3">Crème brûlée</string>
+    <string name="defdessert3">à la vanille bourbon</string>
+    <string name="prix_dessert3">8€</string>
+
+    <string name="glace">Coupes glacées</string>
+    <string name="glace1">Coupe Maison</string>
+    <string name="defglace1">sorbets framboise, coco, passion</string>
+    <string name="prix_glace1">6.50€</string>
+    <string name="glace2">Dame Blanche</string>
+    <string name="prix_glace2">7€</string>
+
+    <!--Boissons-->
+    <string name="boissons_c">Boissons chaudes</string>
+    <string name="choco">Chocolat viennois</string>
+    <string name="prix_choco">2.50€</string>
+    <string name="cafe">Café</string>
+    <string name="prix_cafe">2€</string>
+
+    <string name="boissons_f">Boissons fraîches</string>
+    <string name="coca">Coca-Cola</string>
+    <string name="prix_coca">3€</string>
+    <string name="sprite">Sprite</string>
+    <string name="prix_sprite">2.70€</string>
+    <string name="jus">Jus d orange</string>
+    <string name="prix_jus">1.50€</string>
+
+    <string name="vin">Vins</string>
+    <string name="bordeau">Bordeaux 50cL</string>
+    <string name="alsace">Alsace 50cL</string>
+    <string name="prix_vin">7.50€</string>
+
+    <string name="eau">Eau</string>
+    <string name="evian">Evian 50cL</string>
+    <string name="prix_ev">0.75€</string>
+    <string name="evian1">Evian 1L</string>
+    <string name="prix_ev1">1.50€</string>
+    <string name="badoit">Badoît 1L</string>
+    <string name="prix_bad">1.50€</string>
+
+    <!--Commande-->
+    <string name="commande_complete">Voir l ensemble des commandes</string>
+    <string name="commande_cachee">Cacher l ensemble des commandes</string>
+    <string name="quantite">Quantité</string>
+    <string name="intitule">Intitulé</string>
+    <string name="prix_item">Prix</string>
+
+    <!-- info produit -->
+    <string name="ingredient_rapide1">Ingredients: pain, steak, salade, tomates, cheddar</string>
+    <string name="less">-</string>
+    <string name="more">+</string>
+    <string name="quantite_commande">1</string>
+
+    <string name="supprimer_ingredients">supprimer un ingredient</string>
+    <string name="add_commande">Ajouter Ã  la commande</string>
+    <string name="image_rapide1">image du plat</string>
+
+    <string name="cuisson_viande">Cuisson</string>
+    <string name="accompagnement">Accomp</string>
+    <string name="sauce">Sauce</string>
+
+    <string-array name="accompagnement_array">
+        <item>Choix accompagnement</item>
+        <item>frite</item>
+        <item>haricot</item>
+    </string-array>
+
+    <string-array name="sauce_array">
+        <item>Choix sauce</item>
+        <item>ketchup</item>
+        <item>mayonnaise</item>
+        <item>barbecue</item>
+    </string-array>
+
+    <string-array name="cuisson_array">
+        <item>Choix cuisson</item>
+        <item>bleu</item>
+        <item>saignant</item>
+        <item>Ã  point</item>
+        <item>bien cuit</item>
+    </string-array>
+
+    <!-- partie Lila-->
+    <string-array name="country_names">
+        <item>\u00A0\u00A0+1 English"</item>
+    </string-array>
+
+    <string-array name="country_codes">
+        <item>1</item>
+    </string-array>
+
+    <string-array name="country_flags">
+        <item>@drawable/anglais</item>
+    </string-array>
+
+    <string name="connexion">Connexion</string>
+    <string name="membre">Déja membre</string>
+    <string name="login">Login</string>
+    <string name="newMembre">Nouveau membre</string>
+    <string name="compte">Creer un compte</string>
+    <string name="identifiant">Identifiant</string>
+    <string name="password">Mot de passe</string>
+    <string name="valider">Valider</string>
+    <string name="nom">Nom*:</string>
+    <string name="prenom">Prenom*:</string>
+    <string name="pseudo">Pseudo*:</string>
+    <string name="titulaie">Titulaire :</string>
+    <string name="crypto">Cryptogramme :</string>
+    <string name="num">Numeros :</string>
+    <string name="coord">Coordonnées bancaires </string>
+    <string name="error">"Votre mot de passe ou votre identifiant n'est pas reconnu"</string>
+
+</resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ihm_p6.infsi351.ensi.fr.myapplication.MainActivity"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"/>
+        <Button
+            android:id="@+id/serveur"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:background="@drawable/waiter"
+            android:layout_alignParentRight="true"
+            android:onClick="callWaiter" />
+
+
+        <TextView
+            android:id="@+id/nomResto"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="@string/nom_restaurant"
+            android:textColor="#53B50A"
+            android:textSize="80dp"
+            android:gravity="center"
+            android:background="@drawable/border"
+            android:layout_below="@+id/toolbar"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/textView7"
+            android:layout_height="45dp"
+            android:layout_below="@+id/nomResto"/>
+
+        <!--40dp hight=120dp-->
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/border"
+            android:layout_below="@+id/textView7">
+
+            <Button
+                android:id="@+id/left_btn"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/left_button"
+                android:layout_weight="0.12"
+                 android:textColor="#C71585"
+                android:textColorLink="#000010"
+                android:onClick="defilerAgauche"/>
+
+            <TextView
+                android:id="@+id/flag"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:background="@drawable/france"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="100dp"
+                android:layout_toRightOf="@+id/left_btn"
+                android:layout_toLeftOf="@+id/right_btn"
+                android:layout_alignParentBottom="false"/>
+
+            <TextView
+                android:id="@+id/langue"
+                android:layout_width="match_parent"
+                android:background="@drawable/border"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/flag"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/left_btn"
+                android:layout_toLeftOf="@+id/right_btn"
+                android:layout_weight="0.72"
+                android:textSize="35dp"
+                android:textColor="#000000"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/right_btn"
+                android:layout_height="match_parent"
+                android:background="@drawable/right_btn"
+                android:textColor="#8EA2C6"
+                android:layout_weight="0.12"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_width="50dp"
+                android:onClick="defilerAdroite"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/textView8"
+            android:layout_height="45dp"
+            android:layout_below="@+id/layout1"/>
+
+        <Button
+            android:text="@string/carte"
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/carte_btn"
+            android:layout_weight="0.10"
+            android:onClick="afficherCarte"
+            android:layout_below="@+id/textView8"
+            android:background="@drawable/border_button"
+            android:layout_alignLeft="@+id/compte_btn"
+            android:layout_alignStart="@+id/compte_btn"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/textView9"
+            android:layout_height="45dp"
+            android:layout_below="@+id/carte_btn"/>
+        <Button
+            android:text="Compte"
+            android:layout_width="277dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/compte_btn"
+            android:layout_weight="0.10"
+            android:background="@drawable/border_button"
+            android:onClick="afficherCompte"
+            android:textSize="25dp"
+            android:layout_below="@+id/textView9"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</ScrollView>

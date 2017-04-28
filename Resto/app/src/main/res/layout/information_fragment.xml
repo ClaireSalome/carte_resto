@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/info_frag">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/blank"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/profil"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/blank"
+        android:text="    Profil"
+        android:gravity="center_vertical"
+        android:background="@drawable/border"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:onClick="afficherProfile"/>
+    <TextView
+        android:id="@+id/blank1"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/profil"/>
+
+    <TextView
+        android:id="@+id/points_fidilité"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/blank1"
+        android:text="    Points de fidélité"
+        android:gravity="center_vertical"
+        android:background="@drawable/border"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:onClick="afficherPoints2Fedilite"/>
+    <TextView
+        android:id="@+id/blank2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/points_fidilité"/>
+
+    <TextView
+        android:id="@+id/menus_favoris"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/blank2"
+        android:text="    Menus favorie"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:onClick="afficherFavoris"/>
+    <TextView
+        android:id="@+id/blank3"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/menus_favoris"/>
+
+    <TextView
+        android:id="@+id/allergies"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/blank3"
+        android:text="    Allergies"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:onClick="afficherAllergies"/>
+    <TextView
+        android:id="@+id/blank4"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/allergies"/>
+
+    <TextView
+        android:id="@+id/historique"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/blank4"
+        android:text="    Historiques"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/blank5"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/historique"/>
+    <TextView
+        android:id="@+id/deconnexion"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/blank5"
+        android:text="    Deconnexion"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:id="@+id/blank6"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/deconnexion"/>
+    <TextView
+        android:id="@+id/passer_commande"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/blank6"
+        android:text="    Passer commande"
+        android:background="@drawable/border"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/menus_favoris_btn"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        android:layout_width="60dp"
+        android:background="@drawable/right_btn"
+        android:backgroundTint="#000000"
+        android:layout_alignRight="@+id/menus_favoris"
+        android:layout_below="@+id/blank2"
+        android:layout_above="@+id/blank3"
+        android:onClick="afficherFavoris"/>
+
+    <Button
+        android:id="@+id/profil_btn"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        android:layout_width="60dp"
+        android:background="@drawable/right_btn"
+        android:backgroundTint="#000000"
+        android:layout_alignRight="@+id/profil"
+        android:layout_below="@+id/blank"
+        android:onClick="afficherProfile"/>
+
+    <Button
+        android:id="@+id/ponts_fidelité_btn"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        android:layout_width="60dp"
+        android:background="@drawable/right_btn"
+        android:backgroundTint="#000000"
+        android:layout_alignRight="@+id/points_fidilité"
+        android:layout_below="@+id/blank1"
+        android:onClick="afficherPoints2Fedilite"/>
+
+    <Button
+        android:id="@+id/allergie_btn"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        android:layout_width="60dp"
+        android:background="@drawable/right_btn"
+        android:backgroundTint="#000000"
+        android:layout_alignRight="@+id/allergies"
+        android:layout_below="@+id/blank3"
+        android:onClick="afficherAllergies"/>
+
+    <Button
+        android:id="@+id/historique_btn"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        android:layout_width="60dp"
+        android:background="@drawable/right_btn"
+        android:backgroundTint="#000000"
+        android:layout_alignRight="@+id/historique"
+        android:layout_below="@+id/blank4"/>
+
+    <Button
+        android:id="@+id/deconnexion_btn"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        android:layout_width="60dp"
+        android:background="@drawable/right_btn"
+        android:backgroundTint="#000000"
+        android:layout_alignRight="@+id/deconnexion"
+        android:layout_below="@+id/blank5"
+        android:onClick="seDeconnecter"/>
+
+    <Button
+        android:id="@+id/passer_commande_btn"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        android:layout_width="60dp"
+        android:background="@drawable/right_btn"
+        android:backgroundTint="#000000"
+        android:layout_alignRight="@+id/passer_commande"
+        android:layout_below="@+id/blank6"
+        android:onClick="afficherCarte"/>
+
+</RelativeLayout>
+</ScrollView>

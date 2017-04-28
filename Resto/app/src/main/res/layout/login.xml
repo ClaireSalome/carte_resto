@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ihm_p6.infsi351.ensi.fr.myapplication.MainActivity"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"/>
+
+        <include layout="@layout/header"></include>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_weight="0.1"
+        android:layout_height="32dp"
+        android:id="@+id/blank"
+        android:layout_below="@+id/toolbar"/>
+
+    <TextView
+        android:id="@id/login"
+        android:layout_width="match_parent"
+        android:layout_height= "wrap_content"
+        android:layout_weight="0.2"
+        android:textColor="#000000"
+        android:text="@string/login"
+        android:textSize="35dp"
+        android:layout_below="@id/blank"
+        android:gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/identifiant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/border"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textSize="55sp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_weight="0.1"
+        android:layout_below="@+id/identifiant"
+        android:id="@+id/blank1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textSize="35dp"
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        android:layout_weight="0.04"
+        android:layout_below="@+id/blank1"
+        android:id="@+id/mdp"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_toEndOf="@+id/blank2"
+            android:background="@drawable/border"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textSize="55sp"
+            android:layout_toRightOf="@+id/blank2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="0.05"
+        android:id="@+id/blank2"
+        android:layout_below="@+id/password"/>
+
+        <Button
+            android:id="@+id/valideLogin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="72dp"
+            android:layout_marginStart="72dp"
+            android:text="@string/valider"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:layout_marginTop="37dp"
+            android:layout_below="@+id/blank2"
+            android:layout_toRightOf="@+id/blank2"
+            android:layout_toEndOf="@+id/blank2"
+            android:onClick="valide"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"/>
+
+
+</RelativeLayout>
+    </ScrollView>
